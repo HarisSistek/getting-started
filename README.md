@@ -67,7 +67,9 @@ In this section the most typical scenarios is described.
 
 This example shows how to import addresses into the system. It is a shell script which shows how to add a list of customers to a job.
 
+```
 LINK to API docs: https://<YOUR_SITE_NAME>.telemagic.no:8894/rest/#1316391243
+```
 
 It is a two-step process:  
 
