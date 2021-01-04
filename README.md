@@ -62,7 +62,7 @@ For each endpoint it is mentioned the user roles which are permitted to use it, 
 Postman is an useful tool for working with and testing new APIs.
 
 We have created a postman collection of useful API examples for you to test
-with. Download the .json file under folder **postman_collection** and 
+Download the .json file under the **postman_collection** folder and 
 import it as a collection using the **Import** button.
 
 After importing the collection you should edit its variables.
