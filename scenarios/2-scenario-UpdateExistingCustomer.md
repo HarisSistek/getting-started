@@ -36,7 +36,7 @@ To put the customer sales data, you will need to use this API:
 
     https://<yoursite>telemagic.no:8894/rest/#420588881 
 
-You only need to put the field you want to update or update on the
+You only need to put the field you want to add or update on the
 existing customer. 
 
 ##### Postman Examples
