@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "b1cd5ee4-bfe8-496d-ae5b-6257f9213781",
+		"name": "TmgGettingStartedGuide",
+		"description": "Make things easier when getting started with the API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addresslist",
+			"item": [
+				{
+					"name": "Import Addresses",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{TMG_API_PASSWORD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{TMG_API_USER}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n   {\n      \"customerField\":{\n         \"ticket\":\"abc123\",\n         \"whatever\":\"something or anything\"\n      },\n      \"phoneNo\":\"+4712312\",\n      \"country\":\"Norway\",\n      \"name\":\"Ola\",\n      \"eMail\":\"ola@nordmann.com\",\n      \"lastName\":\"Nordmann\",\n      \"address\":\"South street 1\",\n      \"zip\":\"1234\",\n      \"city\":\"City name\",\n      \"company\":\"Green Company\",\n      \"companyContact\":\"Kontact K\",\n      \"companySector\":\"Sector S\",\n      \"customerId\":\"some-ext-id-1\",\n      \"gender\":\"Male\",\n      \"customerNote\":\"customer note 1\",\n      \"sessionNote\":\"session note 1\"\n   }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{TMG_SITE_NICK}}.telemagic.no:8894/rest/addresslist/project/{{TMG_PROJECT}}/job/{{TMG_JOB}}/json",
+							"protocol": "https",
+							"host": [
+								"{{TMG_SITE_NICK}}",
+								"telemagic",
+								"no"
+							],
+							"port": "8894",
+							"path": [
+								"rest",
+								"addresslist",
+								"project",
+								"{{TMG_PROJECT}}",
+								"job",
+								"{{TMG_JOB}}",
+								"json"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "sales or customers",
+			"item": [
+				{
+					"name": "Update Existing customer using TMG ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{TMG_API_PASSWORD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{TMG_API_USER}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"saleData\": {\n        \"tmg_customer.jobCustomer.lastName\": \"New_lastName\",\n        \"tmg_customer.jobCustomer.city\":\"New_city\",\n        \"tmg_customer.jobCustomer.name\":\"New_name\",\n        \"tmg_customer.customerField.addNewFieldOnTheFly\":\"New field added\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{TMG_SITE_NICK}}.telemagic.no:8894/rest/sales/1000/data/",
+							"protocol": "https",
+							"host": [
+								"{{TMG_SITE_NICK}}",
+								"telemagic",
+								"no"
+							],
+							"port": "8894",
+							"path": [
+								"rest",
+								"sales",
+								"1000",
+								"data",
+								""
+							]
+						},
+						"description": "To put the customer sales data, you will need to use this API: \n\nhttps://{{TMG_SITE_NICK}}.telemagic.no:8894/rest/#420588881"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing customer using customerId",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{TMG_API_PASSWORD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{TMG_API_USER}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"saleData\": {\n        \"tmg_customer.jobCustomer.lastName\": \"New_lastName\",\n        \"tmg_customer.jobCustomer.city\":\"New_city\",\n        \"tmg_customer.jobCustomer.name\":\"New_name\",\n        \"tmg_customer.customerField.addNewFieldOnTheFly\":\"New field added\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{TMG_SITE_NICK}}.telemagic.no:8894/rest/sales/project/{{TMG_PROJECT}}/job/{{TMG_JOB}}/customerId/YOUR_CUSTOMER_ID_HERE/data/",
+							"protocol": "https",
+							"host": [
+								"{{TMG_SITE_NICK}}",
+								"telemagic",
+								"no"
+							],
+							"port": "8894",
+							"path": [
+								"rest",
+								"sales",
+								"project",
+								"{{TMG_PROJECT}}",
+								"job",
+								"{{TMG_JOB}}",
+								"customerId",
+								"YOUR_CUSTOMER_ID_HERE",
+								"data",
+								""
+							]
+						},
+						"description": "To put the customer sales data, you will need to use this API: \n\nhttps://{{TMG_SITE_NICK}}.telemagic.no:8894/rest/#420588881"
+					},
+					"response": []
+				},
+				{
+					"name": "Get data on specific customer using TMG ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{TMG_API_PASSWORD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{TMG_API_USER}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{TMG_SITE_NICK}}.telemagic.no:8894/rest/sales/1000?skipconfig=true",
+							"protocol": "https",
+							"host": [
+								"{{TMG_SITE_NICK}}",
+								"telemagic",
+								"no"
+							],
+							"port": "8894",
+							"path": [
+								"rest",
+								"sales",
+								"1000"
+							],
+							"query": [
+								{
+									"key": "skipconfig",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find a specific customer by searching",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{TMG_API_PASSWORD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{TMG_API_USER}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{TMG_SITE_NICK}}.telemagic.no:8894/rest/customer?includeArchivedJobs=true&includeDeletedJobs=true&contact=4574454122&projectjobs={{TMG_PROJECT}}%2F{{TMG_JOB}}",
+							"protocol": "https",
+							"host": [
+								"{{TMG_SITE_NICK}}",
+								"telemagic",
+								"no"
+							],
+							"port": "8894",
+							"path": [
+								"rest",
+								"customer"
+							],
+							"query": [
+								{
+									"key": "includeArchivedJobs",
+									"value": "true"
+								},
+								{
+									"key": "includeDeletedJobs",
+									"value": "true"
+								},
+								{
+									"key": "contact",
+									"value": "4574454122"
+								},
+								{
+									"key": "projectjobs",
+									"value": "{{TMG_PROJECT}}%2F{{TMG_JOB}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get data on specific customer using customerId",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{TMG_API_PASSWORD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{TMG_API_USER}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{TMG_SITE_NICK}}.telemagic.no:8894/rest/sales/project/{{TMG_PROJECT}}/job/{{TMG_JOB}}/customerId/MY_CUSTOMER_ID/data/",
+							"protocol": "https",
+							"host": [
+								"{{TMG_SITE_NICK}}",
+								"telemagic",
+								"no"
+							],
+							"port": "8894",
+							"path": [
+								"rest",
+								"sales",
+								"project",
+								"{{TMG_PROJECT}}",
+								"job",
+								"{{TMG_JOB}}",
+								"customerId",
+								"MY_CUSTOMER_ID",
+								"data",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get Rest API version",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{TMG_SITE_NICK}}.telemagic.no:8894/rest/version",
+					"protocol": "https",
+					"host": [
+						"{{TMG_SITE_NICK}}",
+						"telemagic",
+						"no"
+					],
+					"port": "8894",
+					"path": [
+						"rest",
+						"version"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TMG_API_USER",
+			"value": "REPLACE_USERNAME"
+		},
+		{
+			"key": "TMG_API_PASSWORD",
+			"value": "REPLACE_PASSWORD"
+		},
+		{
+			"key": "TMG_SITE_NICK",
+			"value": "REPLACE_SITE_NICKNAME"
+		},
+		{
+			"key": "TMG_PROJECT",
+			"value": "REPLACE_WITH_PROJECT"
+		},
+		{
+			"key": "TMG_JOB",
+			"value": "REPLACE_WITH_JOB"
+		}
+	]
+}
